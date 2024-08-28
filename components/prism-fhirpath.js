@@ -7,7 +7,7 @@ Prism.languages.fhirpath = {
 	},
 	'constant': [
 		// This is where I'm going to put in the literals for datetime/date/time/quantity
-		/@[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9](:[0-9][0-9])?(\.[0-9]+)?(Z|[+\-][0-9][0-9]:[0-9][0-9])/,
+		/@[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]T[0-9][0-9]:[0-9][0-9](:[0-9][0-9])?(\.[0-9]+)?(Z|[+\-][0-9][0-9]:[0-9][0-9])?/,
 		/@[0-9][0-9][0-9][0-9](-[0-9][0-9](-[0-9][0-9])?)?/,
 		/@T[0-9][0-9]:[0-9][0-9](:[0-9][0-9])?(\.[0-9]+)?/,
 		/\b\d+(?:(?:\.\d*)?(?:[eE][+-]?\d+)?)?\b\s+(years|months|weeks|days|hours|minutes|seconds|milliseconds|year|month|week|day|hour|minute|second|millisecond)\b/
