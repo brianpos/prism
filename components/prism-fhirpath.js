@@ -12,7 +12,10 @@ Prism.languages.fhirpath = {
 		/@T[0-9][0-9]:[0-9][0-9](:[0-9][0-9])?(\.[0-9]+)?/,
 		/\b\d+(?:(?:\.\d*)?(?:[eE][+-]?\d+)?)?\b\s+(years|months|weeks|days|hours|minutes|seconds|milliseconds|year|month|week|day|hour|minute|second|millisecond)\b/
 	],
-	'number': /\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b/i,
+	'number': [
+		/\b\d+(?:\.\d+)?(?:e[+-]?\d+)?\b/i,
+		/\b\d+(?:\.\d+)?L\b/i
+	],
 	'string': {
 		pattern: /(^|[^\\])'(?:\\.|[^\\'\r\n])*'(?!\s*:)/,
 		lookbehind: true,
@@ -51,11 +54,11 @@ Prism.languages.fhirpath = {
 	],
 	'variable': [
 		/(%\w+)\b/,
-		/(%`(?:\w|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|[ "\\\/fnrt])+`)/ // this isn;t quite right, but it's a start
+		/(%`(?:\w|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|[ \-\."\\\/fnrt])+`)/ // this isn;t quite right, but it's a start
 	],
 	'identifier': [
 		{
-			pattern: /`(?:\w|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|[ "\\\/fnrt])+`/,
+			pattern: /`(?:\w|x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|[ \-\."\\\/fnrt])+`/,
 			// lookbehind: true,
 			greedy: true
 		},
