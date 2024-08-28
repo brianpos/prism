@@ -1,0 +1,279 @@
+/* a multi-line comment
+ - FHIR syntax highlighers */
+1 // integer
+| -2 // negative integer
+| `dece\u005ased` // quoted identifier
+| text.`div` // identifier that is a reserved word
+| +3.141592650 // decimal
+| @2020-12-01 // date
+| @2015-02-04T14:34:28+09:00 // datetime
+| @T12:45:28 // time portion
+| 'some string' // string
+| '\tsom\\e \'st\'r\ning' // string with a quote inside it (and newline)
+| '\u00A9' // unicode copyright symbol
+| 'string' & ' another string' // string contactenation
+| 1 weeks // quantity
+| 1 'mg' // quantity
+| gender // simple identifier
+| meta.versionId // backbone property
+| name[0].text // array indexer
+| today() // top level function
+| 1.toString() // const calling a string
+| birthDate.toString() // type conversion(function) on property
+| _testme // idenfier starting with an underscore (not a fhir property)
+| deceased.ofType(Boolean) // type selector
+// | deceased as boolean // 'as' cast operator
+// | deceased.as(boolean) // `as(` cast function
+| (deceased is Boolean)
+| name.where($this.use = 'usual').text // $this keyword in use
+| iif(true, 'iif true', 'iif false') // iif function
+| %ucum // an environment variable (from the spec)
+| %`uc um` + '/test' // delimitted environment variable
+| 5-6 // a numeric expression
+| iif(true or false xor true, 'boolean tv', 'boolean fv') // booleans
+| 6*6 //numeric multiplication
+| name.select('x: '+ family.combine(given).join(', '))
+| ~45 > 12 < 34 <= 34!=23
+| { }>= 12 is( still)
+
+----------------------------------------------------
+
+[
+       ["comment", "/* a multi-line comment\r\n - FHIR syntax highlighers */"],
+
+        ["number", "1"],
+        ["comment", "// integer"],
+
+        ["operator", "|"],
+        ["operator", "-"],
+        ["number", "2"],
+        ["comment", "// negative integer"],
+
+        ["operator", "|"],
+        ["identifier", "`dece\\u005ased`"],
+        ["comment", "// quoted identifier"],
+
+        ["operator", "|"],
+        ["identifier", "text"],
+        ["punctuation", "."],
+        ["identifier", "`div`"],
+        ["comment", "// identifier that is a reserved word"],
+
+        ["operator", "|"],
+        ["operator", "+"],
+        ["number", "3.141592650"],
+        ["comment", "// decimal"],
+
+        ["operator", "|"],
+        ["constant", "@2020-12-01"],
+        ["comment", "// date"],
+
+        ["operator", "|"],
+        ["constant", "@2015-02-04T14:34:28+09:00"],
+        ["comment", "// datetime"],
+
+        ["operator", "|"],
+        ["constant", "@T12:45:28"],
+        ["comment", "// time portion"],
+
+        ["operator", "|"],
+        ["string", "'some string'"],
+        ["comment", "// string"],
+
+        ["operator", "|"],
+        ["string", "'\\tsom\\\\e \\'st\\'r\\ning'"],
+        ["comment", "// string with a quote inside it (and newline)"],
+
+        ["operator", "|"],
+        ["string", "'\\u00A9'"],
+        ["comment", "// unicode copyright symbol"],
+
+        ["operator", "|"],
+        ["string", "'string'"],
+        ["operator", "&"],
+        ["string", "' another string'"],
+        ["comment", "// string contactenation"],
+
+        ["operator", "|"],
+        ["constant", "1 weeks"],
+        ["comment", "// quantity"],
+
+        ["operator", "|"],
+        ["number", "1"],
+        ["string", "'mg'"],
+        ["comment", "// quantity"],
+
+        ["operator", "|"],
+        ["identifier", "gender"],
+        ["comment", "// simple identifier"],
+
+        ["operator", "|"],
+        ["identifier", "meta"],
+        ["punctuation", "."],
+        ["identifier", "versionId"],
+        ["comment", "// backbone property"],
+
+        ["operator", "|"],
+        ["identifier", "name"],
+        ["punctuation", "["],
+        ["number", "0"],
+        ["punctuation", "]"],
+        ["punctuation", "."],
+        ["identifier", "text"],
+        ["comment", "// array indexer"],
+
+        ["operator", "|"],
+        ["builtin", "today"],
+        ["punctuation", "("],
+        ["punctuation", ")"],
+        ["comment", "// top level function"],
+
+        ["operator", "|"],
+        ["number", "1"],
+        ["punctuation", "."],
+        ["builtin", "toString"],
+        ["punctuation", "("],
+        ["punctuation", ")"],
+        ["comment", "// const calling a string"],
+
+        ["operator", "|"],
+        ["identifier", "birthDate"],
+        ["punctuation", "."],
+        ["builtin", "toString"],
+        ["punctuation", "("],
+        ["punctuation", ")"],
+        ["comment", "// type conversion(function) on property"],
+
+        ["operator", "|"],
+        ["identifier", "_testme"],
+        ["comment", "// idenfier starting with an underscore (not a fhir property)"],
+
+        ["operator", "|"],
+        ["identifier", "deceased"],
+        ["punctuation", "."],
+        ["builtin", "ofType"],
+        ["punctuation", "("],
+        ["identifier", "Boolean"],
+        ["punctuation", ")"],
+        ["comment", "// type selector"],
+
+        ["comment", "// | deceased as boolean // 'as' cast operator"],
+
+        ["comment", "// | deceased.as(boolean) // `as(` cast function"],
+
+        ["operator", "|"],
+        ["punctuation", "("],
+        ["identifier", "deceased"],
+        ["keyword", "is"],
+        ["identifier", "Boolean"],
+        ["punctuation", ")"],
+
+        ["operator", "|"],
+        ["identifier", "name"],
+        ["punctuation", "."],
+        ["builtin", "where"],
+        ["punctuation", "("],
+        "$",
+        ["identifier", "this"],
+        ["punctuation", "."],
+        ["identifier", "use"],
+        ["operator", "="],
+        ["string", "'usual'"],
+        ["punctuation", ")"],
+        ["punctuation", "."],
+        ["identifier", "text"],
+        ["comment", "// $this keyword in use"],
+
+        ["operator", "|"],
+        ["builtin", "iif"],
+        ["punctuation", "("],
+        ["boolean", "true"],
+        ["punctuation", ","],
+        ["string", "'iif true'"],
+        ["punctuation", ","],
+        ["string", "'iif false'"],
+        ["punctuation", ")"],
+        ["comment", "// iif function"],
+
+        ["operator", "|"],
+        ["variable", "%ucum"],
+        ["comment", "// an environment variable (from the spec)"],
+
+        ["operator", "|"],
+        ["variable", "%`uc um`"],
+        ["operator", "+"],
+        ["string", "'/test'"],
+        ["comment", "// delimitted environment variable"],
+
+        ["operator", "|"],
+        ["number", "5"],
+        ["operator", "-"],
+        ["number", "6"],
+        ["comment", "// a numeric expression"],
+
+        ["operator", "|"],
+        ["builtin", "iif"],
+        ["punctuation", "("],
+        ["boolean", "true"],
+        ["keyword", "or"],
+        ["boolean", "false"],
+        ["keyword", "xor"],
+        ["boolean", "true"],
+        ["punctuation", ","],
+        ["string", "'boolean tv'"],
+        ["punctuation", ","],
+        ["string", "'boolean fv'"],
+        ["punctuation", ")"],
+        ["comment", "// booleans"],
+
+        ["operator", "|"],
+        ["number", "6"],
+        ["operator", "*"],
+        ["number", "6"],
+        ["comment", "//numeric multiplication"],
+
+        ["operator", "|"],
+        ["identifier", "name"],
+        ["punctuation", "."],
+        ["builtin", "select"],
+        ["punctuation", "("],
+        ["string", "'x: '"],
+        ["operator", "+"],
+        ["identifier", "family"],
+        ["punctuation", "."],
+        ["builtin", "combine"],
+        ["punctuation", "("],
+        ["identifier", "given"],
+        ["punctuation", ")"],
+        ["punctuation", "."],
+        ["builtin", "join"],
+        ["punctuation", "("],
+        ["string", "', '"],
+        ["punctuation", ")"],
+        ["punctuation", ")"],
+
+        ["operator", "|"],
+        ["operator", "~"],
+        ["number", "45"],
+        ["operator", ">"],
+        ["number", "12"],
+        ["operator", "<"],
+        ["number", "34"],
+        ["operator", "<="],
+        ["number", "34"],
+        ["operator", "!="],
+        ["number", "23"],
+
+        ["operator", "|"],
+        ["keyword", "{ }"],
+        ["operator", ">="],
+        ["number", "12"],
+        ["keyword", "is"],
+        ["punctuation", "("],
+        ["identifier", "still"],
+        ["punctuation", ")"]
+]
+
+----------------------------------------------------
+
+Checks for a bit of everything!
